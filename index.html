@@ -9,6 +9,19 @@
     h1 { color: #2c3e50; }
     pre { background: #eee; padding: 15px; border-radius: 8px; overflow-x: auto; }
     code { color: #d63384; }
+    .download-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #2c3e50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .download-btn:hover {
+      background: #34495e;
+    }
   </style>
 </head>
 <body>
@@ -37,7 +50,7 @@ void setup() {
 }
 void loop() {
   display.setBrightness(4);
-  for (int i = 0; i < 101; i++) {
+  for (int i = 0; i &lt; 101; i++) {
     display.showNumberDec(i);
     delay(50);
   }
@@ -50,6 +63,11 @@ void loop() {
   while(1);
 }
   </code></pre>
+
+  <!-- Download Button -->
+  <a class="download-btn" href="https://raw.githubusercontent.com/heta994/7-Segment-Display/main/7segment_display.ino" download>
+    Download Arduino Code
+  </a>
 
   <p>Made by <strong>Hetanshi Patel</strong> 💡</p>
 </body>

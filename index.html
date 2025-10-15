@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4-Digit 7 Segment Display using TM1637</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f9; color: #333; }
+    h1 { color: #2c3e50; }
+    pre { background: #eee; padding: 15px; border-radius: 8px; overflow-x: auto; }
+    code { color: #d63384; }
+  </style>
+</head>
+<body>
+  <h1>4-Digit 7 Segment Display using TM1637</h1>
+  <p>This Arduino project uses the TM1637 module to display numbers and temperature values on a 4-digit 7-segment display.</p>
+
+  <h2>Connections</h2>
+  <ul>
+    <li>CLK → D2</li>
+    <li>DIO → D3</li>
+    <li>VCC → 5V</li>
+    <li>GND → GND</li>
+  </ul>
+
+  <h2>Arduino Code</h2>
+  <pre><code>
+#include &lt;TM1637Display.h&gt;
+#define CLK 2
+#define DIO 3
+TM1637Display display = TM1637Display(CLK, DIO);
+const uint8_t celsius[] = { SEG_A | SEG_B | SEG_F | SEG_G, SEG_A | SEG_D | SEG_E | SEG_F };
+
+void setup() {
+  display.clear();
+  delay(1000);
+}
+void loop() {
+  display.setBrightness(4);
+  for (int i = 0; i < 101; i++) {
+    display.showNumberDec(i);
+    delay(50);
+  }
+  delay(1000);
+  display.clear();
+  int temperature = 24;
+  display.showNumberDec(temperature, false, 2, 0);
+  display.setSegments(celsius, 2, 2);
+  delay(1000);
+  while(1);
+}
+  </code></pre>
+
+  <p>Made by <strong>Hetanshi Patel</strong> 💡</p>
+</body>
+</html>
